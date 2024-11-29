@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display PNG Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;  /* Makes the image responsive */
+            height: auto;
+        }
+        a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: blue;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Payment Page</h1>
+    <!-- Link to open the image -->
+    <a href="https://api.qrserver.com/v1/create-qr-code/?data=https://www.payments.com/qr?amount=500&vpa=78927540464@ybl&size=200x200" target="_blank">
+        Click here to generate payment QR Code
+    </a>
+    
+    <a href="demo2.jpg" target="_blank">
+        Click here for Payment
+    </a>
+</body>
+</html>

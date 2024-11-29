@@ -1,0 +1,33 @@
+<script>
+    async function sendMessage() {
+        const userMessage = document.getElementById('userInput').value;
+        if (userMessage.trim() === '') return;
+
+        // Display user message
+        appendMessage(userMessage, 'user-msg');
+
+        // Send the message to the server and get the response
+        const response = await fetch('/get_response', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: userMessage })
+        });
+        const data = await response.json();
+        const botMessage = data.response;
+
+        // Display bot response
+        setTimeout(() => appendMessage(botMessage, 'bot-msg'), 500);
+
+        // Clear input field
+        document.getElementById('userInput').value = '';
+    }
+
+    function appendMessage(message, className) {
+        const chatBox = document.getElementById('chatBox');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', className);
+        messageElement.textContent = message;
+        chatBox.appendChild(messageElement);
+        chatBox.scrollTop = chatBox.scrollHeight;  // Scroll to the latest message
+    }
+</script>
